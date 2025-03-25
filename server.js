@@ -2,7 +2,6 @@ const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
 const connectDB = require("./database/db.js");
-const PORT = process.env.PORT || 3000;
 const authRoutes = require("./routes/auth_routes.js");
 const homeRoutes = require("./routes/home_routes.js");
 const adminRoutes = require("./routes/admin_routes.js");
@@ -23,8 +22,8 @@ app.use("/api/home",homeRoutes);
 app.use("/api/admin",adminRoutes);
 app.use("/api/upload",uploadImageRoutes);
 
-app.listen(PORT,() => {
-    console.log(`Server runing on ${PORT}`);
+app.listen(process.env.PORT,() => {
+    console.log(`Server is running on port ${process.env.PORT}`);
 })
 
 
